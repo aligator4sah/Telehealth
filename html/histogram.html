@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+			['Organization Size', 'IT Team Size', 'Information Security Team'],
+			[50, 15, 3],
+			[50, 15, 0],
+			[150, 7, 0],
+			[350, 75, 3],
+			[150, 25, 15],
+			[250, 150, 25],
+			[250, 25, 15],
+			
+			[350, 250, 150],
+			[50, 3, 0],
+			[150, 15, 7],
+			[150, 25, 15],
+			[50, 25, 3]
+		  ]);
+
+		  var options = {
+			title: 'Charges of subatomic particles',
+			legend: { position: 'top', maxLines: 1 },
+			colors: ['#B0BAC8', '#F8DFBD', '#F3BB9A', '#CD998B'],
+			interpolateNulls: false,
+		  };
+
+        var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 1000px; height: 500px;"></div>
+  </body>
+</html>
