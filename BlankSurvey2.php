@@ -135,16 +135,18 @@
 			</div>
 			
 
-			<a href="#start" class="header__title-wrapper  js-smooth-scroll">
-				<div class="header__title-main">Tele Health</div>
+			<a href="instructions1.php" class="header__title-wrapper  js-smooth-scroll">
+				<div class="header__title-main" href="instructions1.php">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
 			</a>
 
 			<div class="header__social-icons"> 
 				<ul class="w3-navbar w3-blue">
-				<a href="BlankSurvey1.php"><h5>Vendor Selection</h5></a>
+				<a href="BlankSurvey1.php"><h5>Vendor</h5></a>
 				<a> <h5> | </h5></a>
-				<a href="BlankSurvey3.php"><h5> Data Management</h5></a>
+				<a href="BlankSurvey2.php"><h5>Patient Provider</h5></a>
+				<a> <h5> | </h5></a>
+				<a href="BlankSurvey3.php"><h5> Data</h5></a>
 				
 				</ul>
 			</div>
@@ -182,7 +184,11 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $userid = $row["id"];
-    
+	
+    $nextWeek = time() + (7 * 24 * 60 * 60);
+	$curtime = date('Y-m-d');
+	
+	//echo $curtime;
     if(empty($_SESSION['user'])) {   
         header("Location: index1.php");
         die("Redirecting to index1.php"); 
@@ -213,7 +219,7 @@
             
                 $question = $x;
                 $answer = $_POST["optionsRadios$x"];
-                $sql = "INSERT INTO answers (Answer, UserID, QuestionID) VALUES ('$answer', $userid, $question)";
+                $sql = "INSERT INTO answers (Answer, UserID, QuestionID, curtime) VALUES ('$answer', $userid, $question, '$curtime')";
 
                 if ($conn->query($sql) === TRUE){
                     //echo "New record created successfully";

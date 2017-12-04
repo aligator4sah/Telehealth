@@ -81,10 +81,21 @@
 			</div>
 			
 
-			<a href="#start" class="header__title-wrapper  js-smooth-scroll">
-				<div class="header__title-main">Tele Health</div>
+			<a href="finalGraph1.php" class="header__title-wrapper">
+				<div class="header__title-main" href="finalGraph1.php">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
 			</a>
+			
+			<div class="header__social-icons"> 
+				<ul class="w3-navbar w3-blue">
+				<a href="vendorResult1.php"><h5>Vendor</h5></a>
+				<a > <h5> | </h5></a>
+				<a href="patientResult1.php"><h5>Patient Provider</h5></a>
+				<a > <h5> | </h5></a>
+				<a href="dataResult.php"><h5> Data</h5></a>
+				
+				</ul>
+			</div>
 
 		</div>
 	</header>
@@ -136,6 +147,9 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $userid = $row["id"];
+	
+	$nextWeek = time() + (7 * 24 * 60 * 60);
+	$curtime = date('Y-m-d');
 
     $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM patient;";
     $result = $conn->query($sql);
@@ -145,7 +159,7 @@
 	  
 	  $sql = "SELECT answers.Answer AS answer, patient.Description AS des
 				FROM answers, patient
-				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID";
+				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID AND answers.curtime='$curtime'";
 	  $result = $conn->query($sql);
       if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
@@ -164,6 +178,8 @@
 									</div>
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+								
+								<a href="prevPatient1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						</div>
 
 						<!-- project 2 -->
@@ -177,6 +193,9 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $userid = $row["id"];
+	
+	$nextWeek = time() + (7 * 24 * 60 * 60);
+	$curtime = date('Y-m-d');
 
     $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM patient;";
     $result = $conn->query($sql);
@@ -186,7 +205,7 @@
 	  
 	  $sql = "SELECT answers.Answer AS answer, patient.Description AS des
 				FROM answers, patient
-				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID";
+				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID AND answers.curtime = '$curtime'";
 	  $result = $conn->query($sql);
       if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
@@ -206,6 +225,8 @@
 									</div>
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+								
+								<a href="prevPatient1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 							
 						</div>
 
@@ -219,6 +240,8 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $userid = $row["id"];
+	$nextWeek = time() + (7 * 24 * 60 * 60);
+	$curtime = date('Y-m-d');
 
     $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM patient;";
     $result = $conn->query($sql);
@@ -228,7 +251,7 @@
 	  
 	  $sql = "SELECT answers.Answer AS answer, patient.Description AS des
 				FROM answers, patient
-				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID";
+				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID AND answers.curtime = '$curtime'";
 	  $result = $conn->query($sql);
       if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
@@ -247,6 +270,8 @@
 									</div>
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+								
+								<a href="prevPatient1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						
 							
 						</div>

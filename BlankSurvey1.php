@@ -104,7 +104,10 @@
 				clear: both;
 			}
 		}
-	  </style>
+		
+	
+    </style>
+	</style>
 </head>
 
 <body>
@@ -127,6 +130,7 @@
 	<!-- Header -->
 	<header class="header">
 		<div class="header__wrapper">
+	
 			<div class="header__hamburger">
 				<div class="header__hamburger-block">&nbsp;</div>
 				<div class="header__hamburger-block">&nbsp;</div>
@@ -134,20 +138,22 @@
 			</div>
 			
 
-			<a href="#start" class="header__title-wrapper  js-smooth-scroll">
-				<div class="header__title-main">Tele Health</div>
+			<a href="instructions1.php" class="header__title-wrapper  js-smooth-scroll">
+				<div class="header__title-main" href="instructions1.php">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
 			</a>
 
 			<div class="header__social-icons"> 
 				<ul class="w3-navbar w3-blue">
-				<a href="BlankSurvey2.php"><h5>Patient Provider</h5></a>
+				<a href="BlankSurvey1.php"><h5>Vendor Selection</h5></a>
 				<a > <h5> | </h5></a>
-				<a href="BlankSurvey3.php"><h5> Data Management</h5></a>
+				<a href="BlankSurvey2.php"><h5>Patient</h5></a>
+				<a > <h5> | </h5></a>
+				<a href="BlankSurvey3.php"><h5> Data</h5></a>
 				
 				</ul>
 			</div>
-		</div>
+	
 	</header>
 	<!-- End Header -->
 	
@@ -156,10 +162,12 @@
 		<section id="experience" class="experience1">
 			<div class="experience1__hollow-arrow">&nbsp;</div>
 			<div class="experience1__wrapper">
-				<div class="section-header">
+				
+				<div class="section-header1">
 					<div class="section-header__title  section-header__title--experience">Vender Selection</div>
 					<div class="section-header__subtitle">Please remember to click "Next" to save your results.</div>
 				</div>
+				
 <?php
     require("common.php");
     

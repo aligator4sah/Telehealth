@@ -19,6 +19,9 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $userid = $row["id"];
+	
+	$nextWeek = time() + (7 * 24 * 60 * 60);
+	$curtime = date('Y-m-d');
     
     if(empty($_SESSION['user'])) {   
         header("Location: index1.php");
@@ -40,7 +43,7 @@
             
                 $question = $x;
                 $answer = $_POST["optionsRadios$x"];
-                $sql = "INSERT INTO answers (Answer, UserID, QuestionID) VALUES ('$answer', $userid, $question)";
+                $sql = "INSERT INTO answers (Answer, UserID, QuestionID, curtime) VALUES ('$answer', $userid, $question, '$curtime')";
 
                 if ($conn->query($sql) === TRUE){
                     //echo "New record created successfully";
@@ -211,7 +214,7 @@
 								}
 							},
 							backgroundColor: 'transparent',
-							colors: ['#67BC9A', '13B0A5', 'F8F2AB'],
+							colors: ['BEEB9F', 'D4EEFF', 'F8F2AB'],
 							bars: 'horizontal' // Required for Material Bar Charts.
 							
 							};
@@ -284,8 +287,8 @@
 			</div>
 			
 
-			<a href="#start" class="header__title-wrapper  js-smooth-scroll">
-				<div class="header__title-main">Tele Health</div>
+			<a href="instructions1.php" class="header__title-wrapper  js-smooth-scroll">
+				<div class="header__title-main" href="instructions1.php">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
 			</a>
 
