@@ -1,8 +1,8 @@
 <?php
-	$username = "hsx1";
-    $password = "123";
-    $servername = "localhost";
-    $dbname = "telemed";
+	$username = "";
+    $password = "";
+    $servername = "";
+    $dbname = "";
 
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
     try {
