@@ -69,21 +69,20 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
+			
+			
 			<nav class="header__navigation">
-				<a href="#start" class="js-smooth-scroll">
-					<div class="js-smooth-scroll  header__navigation-element">Start...</div>
+				<a href="instructions1.php">
+					<div class="header__navigation-element  header__navigation-element--experience">Instructions</div>
 				</a>
-				<a href="#experience" class="js-smooth-scroll">
-					<div class="header__navigation-element  header__navigation-element--experience">Skills...</div>
+				<a href="finalGraph1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Final Result</div>
 				</a>
-				<a href="#features" class="js-smooth-scroll">
-					<div class="header__navigation-element  header__navigation-element--features">Guarantees...</div>
+				<a href="historyGraph.php">
+					<div class="header__navigation-element  header__navigation-element--features">History Results</div>
 				</a>
-				<a href="#realizations" class="js-smooth-scroll">
-					<div class="header__navigation-element  header__navigation-element--realizations">Portfolio...</div>
-				</a>
-				<a href="#contact" class="js-smooth-scroll">
-					<div class="header__navigation-element  header__navigation-element--contact">Contact...</div>
+				<a href="index1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Log out</div>
 				</a>
 			</nav>
 
@@ -106,7 +105,7 @@
 					<div class="section-header__title  section-header__title--features">Instructions </div>
 					<div class="section-header__subtitle">1. You will be prompted to answer questions broken down into three privacy and security sections (Vendor Section, Patient Provider Interaction, Data Management) regarding your current telehealth systems, services, or practices. <br> </div>
 					<div class="section-header__subtitle">2. Answer these questions to the best of your knowledge by selecting "Yes" or "No". If you are not sure, select "Don't Know". <br> </div>
-					<div class="section-header__subtitle">3. Key words are underlined in the question and link to their respective definitions. Question references and citations are underlined after the question. <br> </div>
+					<div class="section-header__subtitle">3. Key words are linked to their respective definitions. Question references and citations are linked to corresponding page after the question. <br> </div>
 					<div class="section-header__subtitle">4. Once each question has been answered from every section, click the "Submit" button. <br> </div>
 					<div class="section-header__subtitle">5. A report will be generated based on your responses. This will help determine which privacy and security areas you are doing good or needing improvement in regards to your telehealth systems, services, or practices. <br> </div>
 				<br> </br>
@@ -117,3 +116,10 @@
 			
 		</section>
 		<!-- End "Features" Section -->
+		<br>
+		<br>
+		<script src="style/js/dependencies.min.js" type="text/javascript"></script>
+		<script src="style/js/global.js" type="text/javascript"></script>
+	</body>
+	
+	</html>

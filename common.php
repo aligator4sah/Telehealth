@@ -1,14 +1,14 @@
 <?php
-    $username = "hsx1";
+	$username = "hsx1";
     $password = "123";
-    $host = "localhost";
+    $servername = "localhost";
     $dbname = "telemed";
 
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
     try {
         // PDO library is designed to provide a flexible interface between PHP and database servers
         // http://us2.php.net/manual/en/class.pdo.php
-        $db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password);
+        $db = new PDO("mysql:host={$servername};dbname={$dbname};charset=utf8", $username, $password);
     }
     catch(PDOException $ex) {
          die("Failed to connect to the database: " . $ex->getMessage());
@@ -42,7 +42,7 @@
 
     // This initializes a session. Sessions are used to store information about a visitor. 
     // http://us.php.net/manual/en/book.session.php
-       session_start();
+     session_start();
 
     // Note that it is a good practice to NOT end your PHP files with a closing PHP tag.
     // This prevents trailing newlines on the file from being included in your output,

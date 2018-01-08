@@ -1,3 +1,10 @@
+<?php
+    //session_start();
+    $username = $_SESSION['username'];
+	
+    //echo "username is ".$username;
+?>
+
 <!DOCTYPE html><html lang="en">
 
 <head>
@@ -44,11 +51,7 @@
 </head>
 
 <body>
-<?php
-    //session_start();
-    $username = $_SESSION['username'];
-    //echo "username is ".$username;
-?>
+
 <form action="BlankSurvey2.php" method="post">
  <ol>
     <?php foreach($rows as $row): ?>

@@ -1,9 +1,5 @@
 <?php
-    require("common.php");
-	$servername = "localhost";
-    $username = "hsx1";
-    $password = "123";
-    $dbname = "telemed";      
+    require("common.php"); 
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -197,7 +193,7 @@
 							vAxis: {
 							   textStyle: {
 									color: "#FFFFFF",
-									fontSize : 14
+									fontSize : 18
 							   }
 							},
 							hAxis: {
@@ -213,7 +209,7 @@
 								}
 							},
 							backgroundColor: 'transparent',
-							colors: ['#67BC9A', '13B0A5', 'F8F2AB'],
+							colors: ['BEEB9F', '1593A2', 'F8F2AB'],
 							bars: 'horizontal' // Required for Material Bar Charts.
 							
 							};
@@ -285,7 +281,21 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
-
+			<nav class="header__navigation">
+				<a href="instructions1.php">
+					<div class="header__navigation-element  header__navigation-element--experience">Instructions</div>
+				</a>
+				<a href="finalGraph1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Final Result</div>
+				</a>
+				<a href="historyGraph.php">
+					<div class="header__navigation-element  header__navigation-element--features">History Results</div>
+				</a>
+				<a href="index1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Log out</div>
+				</a>
+			</nav>
+			
 			<a href="#start" class="header__title-wrapper  js-smooth-scroll">
 				<div class="header__title-main">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
@@ -305,7 +315,7 @@
 				
 				<table style = "width:100%">
 					<tr>  
-					<th rowspan = "3" width = "70%"><div id="barchart_material" style="width: 650px; height: 400px;" align = "center" ></div></th>
+					<th rowspan = "3" width = "70%"><div id="barchart_material" style="width: 750px; height: 450px;" align = "center" ></div></th>
 					
 					<td>
 					<div class="element">
@@ -348,4 +358,8 @@
 		</section>
 		<!-- End "Features" Section -->
 	
+	<script src="style/js/dependencies.min.js" type="text/javascript"></script>
+		<script src="style/js/global.js" type="text/javascript"></script>
 	</body>
+	
+	</html>

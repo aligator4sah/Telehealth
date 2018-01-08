@@ -1,9 +1,5 @@
 <?php
-    require("common.php");
-	$servername = "localhost";
-    $username = "hsx1";
-    $password = "123";
-    $dbname = "telemed";      
+    require("common.php");  
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -1,3 +1,14 @@
+<?php
+	require("common.php");
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } else {
+        //echo "db is connected";
+    }
+?>
 <!DOCTYPE html><html lang="en">
 
 <head>
@@ -38,7 +49,7 @@
 	  }
 	  
 	  body {
-			background-color: #360033;
+			background-color: #1e0036;
 		}
 		
 	.experience1 {
@@ -134,6 +145,25 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
+			
+			<nav class="header__navigation">
+				
+				<a href="instructions1.php">
+					<div class="header__navigation-element  header__navigation-element--experience">Instructions</div>
+				</a>
+				
+				<a href="finalGraph1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Final Result</div>
+				</a>
+				<a href="historyGraph.php">
+					<div class="header__navigation-element  header__navigation-element--features">History Results</div>
+				</a>
+				<a href="index1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Log out</div>
+				</a>
+				
+			</nav>
+			
 
 			<a href="instructions1.php" class="header__title-wrapper  js-smooth-scroll">
 				<div class="header__title-main" href="instructions1.php">Tele Health</div>
@@ -164,19 +194,6 @@
 					<div class="section-header__subtitle">Please remember to click "Done" to save your results.</div>
 				</div>
 <?php
-    require("common.php");
-	$servername = "localhost";
-    $username = "hsx1";
-    $password = "123";
-    $dbname = "telemed";      
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } else {
-        //echo "db is connected";
-    }
 	
 	//session_start();
     $user = $_SESSION['username'];
@@ -251,4 +268,8 @@
 		</div>
 		</section>
 		<!-- End "Experience" Section -->
-		</body>
+		<script src="style/js/dependencies.min.js" type="text/javascript"></script>
+		<script src="style/js/global.js" type="text/javascript"></script>
+	</body>
+	
+	</html>

@@ -1,3 +1,6 @@
+<?php
+	require("common.php");
+?>
 <!DOCTYPE html><html lang="en">
 
 <head>
@@ -137,6 +140,24 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
+			<nav class="header__navigation">
+				
+				<a href="instructions1.php">
+					<div class="header__navigation-element  header__navigation-element--experience">Instructions</div>
+				</a>
+				
+				<a href="finalGraph1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Final Result</div>
+				</a>
+				<a href="historyGraph.php">
+					<div class="header__navigation-element  header__navigation-element--features">History Results</div>
+				</a>
+				<a href="index1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Log out</div>
+				</a>
+				
+			</nav>
+			
 
 			<a href="instructions1.php" class="header__title-wrapper  js-smooth-scroll">
 				<div class="header__title-main" href="instructions1.php">Tele Health</div>
@@ -169,7 +190,7 @@
 				</div>
 				
 <?php
-    require("common.php");
+    
     
     if(empty($_SESSION['user'])) {   
         header("Location: index1.php");
@@ -208,3 +229,8 @@
 			</div>
 		</section>
 		<!-- End "Experience" Section -->
+		<script src="style/js/dependencies.min.js" type="text/javascript"></script>
+		<script src="style/js/global.js" type="text/javascript"></script>
+	</body>
+	
+	</html>

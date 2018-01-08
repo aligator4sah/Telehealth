@@ -1,9 +1,5 @@
 <?php    
-
-    $servername = "localhost";
-    $username = "hsx1";
-    $password = "123";
-    $dbname = "telemed";      
+	require("common.php");     
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -80,6 +76,20 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
+			<nav class="header__navigation">
+				<a href="instructions1.php">
+					<div class="header__navigation-element  header__navigation-element--experience">Instructions</div>
+				</a>
+				<a href="finalGraph1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Final Result</div>
+				</a>
+				<a href="historyGraph.php">
+					<div class="header__navigation-element  header__navigation-element--features">History Results</div>
+				</a>
+				<a href="index1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Log out</div>
+				</a>
+			</nav>
 
 			<a href="finalGraph1.php" class="header__title-wrapper">
 				<div class="header__title-main" href="finalGraph1.php">Tele Health</div>
@@ -141,7 +151,6 @@
 										<?php
 
       // how to get the user and question ID from other database 
-     session_start();
     $user = $_SESSION['username'];
     $sql = "SELECT id FROM userinfo WHERE username = '$user';";
     $result = $conn->query($sql);
@@ -179,7 +188,7 @@
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
 								
-								<a href="prevData1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						</div>
 
 						<!-- project 2 -->
@@ -190,35 +199,35 @@
 					  				<div class="data_des">
 					<?php 
 					    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $userid = $row["id"];
+					$result = $conn->query($sql);
+					$row = $result->fetch_assoc();
+					$userid = $row["id"];
 
-	$nextWeek = time() + (7 * 24 * 60 * 60);
-	$curtime = date('Y-m-d');
-	
-    $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM data;";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $min = $row["min"];
-    $max = $row["max"];
-	  
-	  $sql = "SELECT answers.Answer AS answer, data.Description AS des
-				FROM answers, data
-				WHERE answers.UserID = $userid AND answers.QuestionID = data.QuestionID AND answers.curtime = '$curtime'";
-	  $result = $conn->query($sql);
-      if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-              $ans = $row["answer"];
-			  $des = $row["des"];
-			  if ($ans == "No") {
-				  echo "<li>";
-				  echo $des;
-				  echo "</li>";
-				  echo "<br>";
-          }
-      }
-	  }
+					$nextWeek = time() + (7 * 24 * 60 * 60);
+					$curtime = date('Y-m-d');
+					
+					$sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM data;";
+					$result = $conn->query($sql);
+					$row = $result->fetch_assoc();
+					$min = $row["min"];
+					$max = $row["max"];
+					  
+					  $sql = "SELECT answers.Answer AS answer, data.Description AS des
+								FROM answers, data
+								WHERE answers.UserID = $userid AND answers.QuestionID = data.QuestionID AND answers.curtime = '$curtime'";
+					  $result = $conn->query($sql);
+					  if ($result->num_rows > 0) {
+						  while ($row = $result->fetch_assoc()) {
+							  $ans = $row["answer"];
+							  $des = $row["des"];
+							  if ($ans == "No") {
+								  echo "<li>";
+								  echo $des;
+								  echo "</li>";
+								  echo "<br>";
+						  }
+					  }
+					  }
 	       
     ?>
 			
@@ -226,7 +235,7 @@
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
 								
-								<a href="prevData1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 							
 						</div>
 
@@ -237,42 +246,42 @@
 									<div class="data_des">
 									<?php 
 					    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $userid = $row["id"];
-	
-	$nextWeek = time() + (7 * 24 * 60 * 60);
-	$curtime = date('Y-m-d');
+				$result = $conn->query($sql);
+				$row = $result->fetch_assoc();
+				$userid = $row["id"];
+				
+				$nextWeek = time() + (7 * 24 * 60 * 60);
+				$curtime = date('Y-m-d');
 
-    $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM data;";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $min = $row["min"];
-    $max = $row["max"];
-	  
-	  $sql = "SELECT answers.Answer AS answer, data.Description AS des
-				FROM answers, data
-				WHERE answers.UserID = $userid AND answers.QuestionID = data.QuestionID AND answers.curtime = '$curtime'";
-	  $result = $conn->query($sql);
-      if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-              $ans = $row["answer"];
-			  $des = $row["des"];
-			  if ($ans == "Dont Know") {
-				  echo "<li>";
-				  echo $des;
-				  echo "</li>";
-				  echo "<br>";
-          }
-      }
-	  }
+				$sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM data;";
+				$result = $conn->query($sql);
+				$row = $result->fetch_assoc();
+				$min = $row["min"];
+				$max = $row["max"];
+				  
+				  $sql = "SELECT answers.Answer AS answer, data.Description AS des
+							FROM answers, data
+							WHERE answers.UserID = $userid AND answers.QuestionID = data.QuestionID AND answers.curtime = '$curtime'";
+				  $result = $conn->query($sql);
+				  if ($result->num_rows > 0) {
+					  while ($row = $result->fetch_assoc()) {
+						  $ans = $row["answer"];
+						  $des = $row["des"];
+						  if ($ans == "Dont Know") {
+							  echo "<li>";
+							  echo $des;
+							  echo "</li>";
+							  echo "<br>";
+					  }
+				  }
+				  }
 	       
     ?>
 									</div>
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
 								
-								<a href="prevData1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						
 							
 						</div>

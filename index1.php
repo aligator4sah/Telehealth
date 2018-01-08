@@ -1,9 +1,6 @@
 <?php
 require("common.php");
-	$username = "hsx1";
-    $password = "123";
-    $servername = "localhost";
-    $dbname = "telemed";
+	
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -120,7 +117,7 @@ if (!empty($_POST)) {
 		background-color: transparent;
 		border: none;
 		color: whilte;
-		padding: 8px 12px;
+		padding: 15px 60px 15px 60px;
 		text-align: center;
 		text-decoration: none;
 		display: inline-block;
@@ -155,6 +152,18 @@ if (!empty($_POST)) {
 	
 	img {
     border-radius: 50%;
+	}
+	
+	.hero__background1 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -400;
+		width: 100%;
+		height: 100%;
+
+		background-image: url("../img/hero_background.jpg");
+		background-repeat: repeat;
 	}
 	
 </style>
@@ -194,9 +203,9 @@ if (!empty($_POST)) {
 	<!-- End Header -->
 
 	<section id="hero" class="hero">
-		<div class="hero__background">&nbsp;</div>
+		<div class="hero__background1">&nbsp;</div>
 		<div class="hero__gradient">&nbsp;</div>
-		<div class="hero__pattern">&nbsp;</div>
+		<!--<div class="hero__pattern">&nbsp;</div>-->
 		<div class="hero__content">
 			<div class="hero__content-wrapper">
 				<div class="hero__title-wrapper">

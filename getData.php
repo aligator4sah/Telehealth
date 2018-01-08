@@ -1,9 +1,6 @@
 <?php    
 
-    $servername = "localhost";
-    $username = "hsx1";
-    $password = "123";
-    $dbname = "telemed";      
+    require("common.php");
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -13,7 +10,7 @@
         //echo "db is connected";
     }
 
-    session_start();
+   
     $user = $_SESSION['username'];
     $sql = "SELECT id FROM userinfo WHERE username = '$user';";
     $result = $conn->query($sql);

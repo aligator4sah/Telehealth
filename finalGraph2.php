@@ -1,9 +1,5 @@
 <?php
-    require("common.php");
-	$servername = "localhost";
-    $username = "hsx1";
-    $password = "123";
-    $dbname = "telemed";      
+    require("common.php");     
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -198,7 +194,7 @@
 							vAxis: {
 							   textStyle: {
 									color: "#FFFFFF",
-									fontSize : 14
+									fontSize : 18
 							   }
 							},
 							hAxis: {
@@ -214,7 +210,7 @@
 								}
 							},
 							backgroundColor: 'transparent',
-							colors: ['#67BC9A', '13B0A5', 'F8F2AB'],
+							colors: ['BEEB9F', '1593A2', 'F8F2AB'],
 							bars: 'horizontal' // Required for Material Bar Charts.
 							
 							};
@@ -306,7 +302,7 @@
 				
 				<table style = "width:100%">
 					<tr>  
-					<th rowspan = "3" width = "70%"><div id="barchart_material" style="width: 650px; height: 400px;" align = "center" ></div></th>
+					<th rowspan = "3" width = "70%"><div id="barchart_material" style="width: 750px; height: 450px;" align = "center" ></div></th>
 					
 					<td>
 					<div class="element">

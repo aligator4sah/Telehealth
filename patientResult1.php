@@ -1,9 +1,6 @@
 <?php    
 
-    $servername = "localhost";
-    $username = "hsx1";
-    $password = "123";
-    $dbname = "telemed";      
+    require("common.php");   
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -80,6 +77,20 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
+			<nav class="header__navigation">
+				<a href="instructions1.php">
+					<div class="header__navigation-element  header__navigation-element--experience">Instructions</div>
+				</a>
+				<a href="finalGraph1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Final Result</div>
+				</a>
+				<a href="historyGraph.php">
+					<div class="header__navigation-element  header__navigation-element--features">History Results</div>
+				</a>
+				<a href="index1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Log out</div>
+				</a>
+			</nav>
 
 			<a href="finalGraph1.php" class="header__title-wrapper">
 				<div class="header__title-main" href="finalGraph1.php">Tele Health</div>
@@ -141,7 +152,7 @@
 										<?php
 
       // how to get the user and question ID from other database 
-     session_start();
+    
     $user = $_SESSION['username'];
     $sql = "SELECT id FROM userinfo WHERE username = '$user';";
     $result = $conn->query($sql);
@@ -179,7 +190,7 @@
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
 								
-								<a href="prevPatient1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						</div>
 
 						<!-- project 2 -->
@@ -226,7 +237,7 @@
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
 								
-								<a href="prevPatient1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 							
 						</div>
 
@@ -271,7 +282,7 @@
 								</div>
 								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
 								
-								<a href="prevPatient1.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						
 							
 						</div>

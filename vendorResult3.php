@@ -1,6 +1,5 @@
 <?php    
-
-    require("common.php");
+	require("common.php");
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -9,8 +8,7 @@
     } else {
         //echo "db is connected";
     }
-	
-	$userid = $_POST["userid"];
+
     
 
 ?>
@@ -79,11 +77,37 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
+			<nav class="header__navigation">
+				<a href="instructions1.php">
+					<div class="header__navigation-element  header__navigation-element--experience">Instructions</div>
+				</a>
+				<a href="finalGraph1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Final Result</div>
+				</a>
+				<a href="historyGraph.php">
+					<div class="header__navigation-element  header__navigation-element--features">History Results</div>
+				</a>
+				<a href="index1.php">
+					<div class="header__navigation-element  header__navigation-element--realizations">Log out</div>
+				</a>
+			</nav>
+			
 
-			<a href="adminVisual.php">
+			<a href="instructions1.php" class="header__title-wrapper">
 				<div class="header__title-main">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
 			</a>
+			
+			<div class="header__social-icons"> 
+				<ul class="w3-navbar w3-blue">
+				<a href="vendorResult3.php"><h5>Vendor Selection</h5></a>
+				<a > <h5> | </h5></a>
+				<a href="patientResult3.php"><h5>Patient</h5></a>
+				<a > <h5> | </h5></a>
+				<a href="dataResult3.php"><h5> Data</h5></a>
+				
+				</ul>
+			</div>
 
 		</div>
 	</header>
@@ -126,10 +150,16 @@
 								<div class="showcase__point">
 									
 									<div class="vendor">
-	<?php
+										<?php
 
       // how to get the user and question ID from other database 
-    
+
+    $user = $_SESSION['username'];
+	$curtime = $_SESSION['date'];
+    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $userid = $row["id"];
 
     $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM questions;";
     $result = $conn->query($sql);
@@ -139,7 +169,7 @@
 	  
 	  $sql = "SELECT answers.Answer AS answer, questions.Description AS des
 				FROM answers, questions
-				WHERE answers.UserID = $userid AND answers.QuestionID = questions.QuestionID";
+				WHERE answers.UserID = $userid AND answers.QuestionID = questions.QuestionID AND answers.curtime = '$curtime'";
 	  $result = $conn->query($sql);
       if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
@@ -157,7 +187,8 @@
     ?>
 									</div>
 								</div>
-								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+
 						</div>
 
 						<!-- project 2 -->
@@ -167,7 +198,12 @@
 								<div class="showcase__point">
 					  				<div class="vendor">
 					<?php 
-					   
+					    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $userid = $row["id"];
+	
+
     $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM questions;";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -176,7 +212,7 @@
 	  
 	  $sql = "SELECT answers.Answer AS answer, questions.Description AS des
 				FROM answers, questions
-				WHERE answers.UserID = $userid AND answers.QuestionID = questions.QuestionID";
+				WHERE answers.UserID = $userid AND answers.QuestionID = questions.QuestionID AND answers.curtime = '$curtime'";
 	  $result = $conn->query($sql);
       if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
@@ -195,7 +231,7 @@
 			
 									</div>
 								</div>
-								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
 							
 						</div>
 
@@ -205,7 +241,10 @@
 								<div class="showcase__point">
 									<div class="vendor">
 									<?php 
-					    
+					    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $userid = $row["id"];
 
     $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM questions;";
     $result = $conn->query($sql);
@@ -215,7 +254,7 @@
 	  
 	  $sql = "SELECT answers.Answer AS answer, questions.Description AS des
 				FROM answers, questions
-				WHERE answers.UserID = $userid AND answers.QuestionID = questions.QuestionID";
+				WHERE answers.UserID = $userid AND answers.QuestionID = questions.QuestionID AND answers.curtime = '$curtime'";
 	  $result = $conn->query($sql);
       if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
@@ -233,12 +272,11 @@
     ?>
 									</div>
 								</div>
-								<a href="individualPage.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
-						
+								
+								<a href="historyGraph.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+								
 							
 						</div>
-
-
 					</div>
 
 

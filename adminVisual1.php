@@ -9,7 +9,44 @@
         //echo "db is connected";
     }
 	
+	//count education distribution
+	//$master = 0;
+	$professional = 0;
+	$doctoral = 0;
+	$bachelor = 0;
+	$associate = 0;
+	$highschool = 0;
+	$other = 0;
+	
+	$masterdes = "Master";
+	$mastercount = "SELECT COUNT(id) AS mastercon FROM userinfo WHERE Education = $masterdes;";
+	$result = $conn->query($mastercount);
+	if($result == false) { 
+	   $master = 0;
+	} else if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$master = row["mastercon"];
+		}
+	}
+	
+	$bachelordes = "Bachelor";
+	$bachelorcount = "SELECT COUNT(id) AS bachelorcon FROM userinfo WHERE Education = $bachelordes;";
+	$result = $conn->query($bachelorcount);
+	if($result === false) { 
+	   $bachelor = 0;
+	} else if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$bachelor = row["bachelorcon"];
+		}
+	}
+	
+	echo $master;
+	echo $bachelor;
   
+  
+  
+  
+  //count total yes, no and don't know for each section.
   $vendor_res = "SELECT COUNT(answers.AnswerID) AS vendor, answers.Answer AS answer
 					FROM answers, questions
 					WHERE answers.QuestionID = questions.QuestionID 
@@ -413,6 +450,7 @@
 				<tr>
 					<td>
 						<div id="Edupiechart" style="width: 440px; height: 230px;"></div>
+						<p> <?php echo $bachelor ?> </p>
 					</td>
 					<th rowspan="2">
 						<div id="chart_div" style="width: 850px; height: 460px;"></div>
