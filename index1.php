@@ -116,7 +116,7 @@ if (!empty($_POST)) {
     .button {
 		background-color: transparent;
 		border: none;
-		color: whilte;
+		color: white;
 		padding: 15px 60px 15px 60px;
 		text-align: center;
 		text-decoration: none;

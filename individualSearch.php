@@ -105,8 +105,29 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
+			
+			<nav class="header__navigation">
+				<a href="adminVisual.php">
+					<div class="js-smooth-scroll  header__navigation-element">Overview...</div>
+				</a>
+				<a href="adminVisual.php#experience">
+					<div class="header__navigation-element  header__navigation-element--experience">Vendor Selection</div>
+				</a>
+				<a href="adminVisual.php#features">
+					<div class="header__navigation-element  header__navigation-element--features">Patient Provider</div>
+				</a>
+				<a href="adminVisual.php#realizations">
+					<div class="header__navigation-element  header__navigation-element--realizations">Data Management</div>
+				</a>
+				<a href="individualSearch.php">
+					<div class="header__navigation-element  header__navigation-element--contact">Individual Search</div>
+				</a>
+				<a href="adminlogin1">
+					<div class="header__navigation-element  header__navigation-element--contact">Log out</div>
+				</a>
+			</nav>
 
-			<a href="adminVisual.php">
+			<a href="adminVisual.php" class="header__title-wrapper  js-smooth-scroll">
 				<div class="header__title-main">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
 			</a>
@@ -154,7 +175,7 @@
 			<a href = "adminVisual.php" color = "white" font-size="22px"> &nbsp; &nbsp; &nbsp; Back <a>
 			
 		
-			<br> <br> <br>
+			<br> <br> <br> <br> <br> <br>
 		</div>
 		
 		</form>
@@ -164,7 +185,8 @@
 		
 		
 		</section>
-		
+		<script src="style/js/dependencies.min.js" type="text/javascript"></script>
+		<script src="style/js/global.js" type="text/javascript"></script>
 		</body>
 		
 		</html>

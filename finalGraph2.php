@@ -10,13 +10,10 @@
     }
 	
 	//session_start();
-    $user = $_SESSION['username'];
-    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $userid = $row["id"];
+    $userid = $_SESSION['userid'];
+   
     
-    if(empty($_SESSION['user'])) {   
+    if(empty($_SESSION['userid'])) {   
         header("Location: index1.php");
         die("Redirecting to index1.php"); 
     }     
@@ -282,6 +279,27 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
+			<nav class="header__navigation">
+				<a href="adminVisual.php">
+					<div class="js-smooth-scroll  header__navigation-element">Overview...</div>
+				</a>
+				<a href="adminVisual.php#experience">
+					<div class="header__navigation-element  header__navigation-element--experience">Vendor Selection</div>
+				</a>
+				<a href="adminVisual.php#features">
+					<div class="header__navigation-element  header__navigation-element--features">Patient Provider</div>
+				</a>
+				<a href="adminVisual.php#realizations">
+					<div class="header__navigation-element  header__navigation-element--realizations">Data Management</div>
+				</a>
+				<a href="individualSearch.php">
+					<div class="header__navigation-element  header__navigation-element--contact">Individual Search</div>
+				</a>
+				<a href="adminlogin1">
+					<div class="header__navigation-element  header__navigation-element--contact">Log out</div>
+				</a>
+			</nav>
+			
 
 			<a href="#start" class="header__title-wrapper  js-smooth-scroll">
 				<div class="header__title-main">Tele Health</div>
@@ -309,7 +327,7 @@
 						<!--<div class="features__image  features__image--newest">&nbsp;</div> -->
 						<img src="feature_vendor.svg" alt="vendor-feature" height = "80" width = "80">
 						<div class="text">
-							<div class="title"> <a  href = "vendorResult1.php"> Vendor Selection </a> </div>
+							<div class="title"> <a  href = "vendorResult2.php"> Vendor Selection </a> </div>
 							<!-- <div class="features__description">Vendor Selection</div> -->
 						</div>
 						
@@ -322,7 +340,7 @@
 						<!-- <div class="features__image  features__image--fast">&nbsp;</div> --> 
 						<img src="feature_patient.svg" alt="patient-feature" height = "70" width = "70"> 
 						<div class="text">
-							<div class="title"><a  href = "patientResult1.php"> Patient Provider </a> </div>
+							<div class="title"><a  href = "patientResult2.php"> Patient Provider </a> </div>
 							
 						</div>
 					</div> </td>
@@ -333,7 +351,7 @@
 						<!--<div class="features__image  features__image--browsers">&nbsp;</div>-->
 						<img src="feature_data.svg" alt="data-feature" height = "70" width = "70">
 						<div class="text">
-							<div class="title"><a  href = "dataResult.php"> Data Management </a> </div>
+							<div class="title"><a  href = "dataResult2.php"> Data Management </a> </div>
 						
 						</div>
 					</div>
@@ -343,6 +361,8 @@
 				</div>
 			</div>
 		</section>
-		<!-- End "Features" Section -->
+		<script src="style/js/dependencies.min.js" type="text/javascript"></script>
+	<script src="style/js/global.js" type="text/javascript"></script>
 	
 	</body>
+	</html>

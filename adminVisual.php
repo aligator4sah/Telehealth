@@ -172,6 +172,9 @@
 				<a href="individualSearch.php">
 					<div class="header__navigation-element  header__navigation-element--contact">Individual Search</div>
 				</a>
+				<a href="adminlogin1">
+					<div class="header__navigation-element  header__navigation-element--contact">Log out</div>
+				</a>
 			</nav>
 
 			<a href="#start" class="header__title-wrapper  js-smooth-scroll">
@@ -305,9 +308,8 @@
           ['Surgical Center', 8],
           ['HMO',    6],
 		  ['MCO', 9],
-		  ['IPA', 4],
-		  ['PSN', 2],
-		  ['PPO', 3]
+		  ['IPA', 4]
+		 
         ]);
 
         var options = {
@@ -412,16 +414,16 @@
 				
 				<tr>
 					<td>
-						<div id="Edupiechart" style="width: 440px; height: 230px;"></div>
+						<div id="Edupiechart" style="width: 450px; height: 250px;"></div>
 					</td>
 					<th rowspan="2">
-						<div id="chart_div" style="width: 850px; height: 460px;"></div>
+						<div id="chart_div" style="width: 860px; height: 480px;"></div>
 					</th>
 					
 				  </tr>
 				  <tr>
 					<td>
-						<div id="Orgpiechart" style="width: 440px; height: 230px;"></div>
+						<div id="Orgpiechart" style="width: 450px; height: 250px;"></div>
 					</td>
 				  </tr>
 				

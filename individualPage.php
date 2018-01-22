@@ -12,6 +12,7 @@
 	
     $user = $_POST["username"];
 	
+	
 	$sql = "select count(*) AS count from userinfo where username = '$user';";
 	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -29,7 +30,8 @@
 				header("Location: individualSearch.php");
 				die("Redirecting to indivisual.php");
 			}
-	
+			
+	$_SESSION["userid"] = $userid;
 
 	$vendory = 0;
 	$vendorn = 0;
@@ -272,8 +274,28 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
+			<nav class="header__navigation">
+				<a href="adminVisual.php">
+					<div class="js-smooth-scroll  header__navigation-element">Overview...</div>
+				</a>
+				<a href="adminVisual.php#experience">
+					<div class="header__navigation-element  header__navigation-element--experience">Vendor Selection</div>
+				</a>
+				<a href="adminVisual.php#features">
+					<div class="header__navigation-element  header__navigation-element--features">Patient Provider</div>
+				</a>
+				<a href="adminVisual.php#realizations">
+					<div class="header__navigation-element  header__navigation-element--realizations">Data Management</div>
+				</a>
+				<a href="individualSearch.php">
+					<div class="header__navigation-element  header__navigation-element--contact">Individual Search</div>
+				</a>
+				<a href="adminlogin1">
+					<div class="header__navigation-element  header__navigation-element--contact">Log out</div>
+				</a>
+			</nav>
 
-			<a href="adminVisual.php">
+			<a href="adminVisual.php" class="header__title-wrapper  js-smooth-scroll">
 				<div class="header__title-main">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
 			</a>
@@ -295,19 +317,19 @@
 					<th rowspan = "3" width = "70%"><div id="barchart_material" style="width: 650px; height: 400px;" align = "center" ></div></th>
 					
 					<td>
-					<form action="vendorResult2.php" method="post">
+					<!--<form action="vendorResult2.php" method="post">-->
 					<div class="element">
 						
 						<!--<div class="features__image  features__image--newest">&nbsp;</div> -->
 						<img src="feature_vendor.svg" alt="vendor-feature" height = "80" width = "80">
 						<div class="text">
-							<input class="form-control" type="hidden" name="userid"  value="<?php echo $userid; ?>">
+							<!--<input class="form-control" type="hidden" name="userid"  value="<?php echo $userid; ?>">-->
 							<div class="title"> <a  href = "vendorResult2.php"> Vendor Selection </a> </div>
 							
 							<!-- <div class="features__description">Vendor Selection</div> -->
 							
 						</div>
-							<button type="submit" class = "button" name = "searchSubmit" text-align="center"> View </button>
+							<!--<button type="submit" class = "button" name = "searchSubmit" text-align="center"> View </button>-->
 					</div>
 					
 					</form>
@@ -320,11 +342,11 @@
 						<!-- <div class="features__image  features__image--fast">&nbsp;</div> --> 
 						<img src="feature_patient.svg" alt="patient-feature" height = "70" width = "70"> 
 						<div class="text">
-							<input class="form-control" type="hidden" name="userid"  value="<?php echo $userid; ?>">
+							<!--<input class="form-control" type="hidden" name="userid"  value="<?php echo $userid; ?>">-->
 							<div class="title"><a  href = "patientResult1.php"> Patient Provider </a> </div>
 							
 						</div>
-						<button type="submit" class = "button" name = "searchSubmit"> View </button>			
+						<!--<button type="submit" class = "button" name = "searchSubmit"> View </button>	-->		
 					</div>
 								
 					</form>
@@ -337,12 +359,12 @@
 						<!--<div class="features__image  features__image--browsers">&nbsp;</div>-->
 						<img src="feature_data.svg" alt="data-feature" height = "70" width = "70">
 						<div class="text">
-							<input class="form-control" type="hidden" name="userid"  value="<?php echo $userid; ?>">
+							<!--<input class="form-control" type="hidden" name="userid"  value="<?php echo $userid; ?>">-->
 							<div class="title"><a  href = "dataResult.php"> Data Management </a> </div>
 							
 						
 						</div>
-						<button type="submit" class = "button" name = "searchSubmit" text-align="center"> View </button>
+						<!--<button type="submit" class = "button" name = "searchSubmit" text-align="center"> View </button>-->
 					</div>
 						
 					</form>
@@ -352,6 +374,8 @@
 				</div>
 			</div>
 		</section>
-		<!-- End "Features" Section -->
 	
+		<script src="style/js/dependencies.min.js" type="text/javascript"></script>
+		<script src="style/js/global.js" type="text/javascript"></script>
 	</body>
+	</html>

@@ -1,5 +1,5 @@
 <?php
-require("common.php");
+    require("common.php");
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -115,7 +115,7 @@ if (!empty($_POST)) {
     .button {
 		background-color: transparent;
 		border: none;
-		color: whilte;
+		color: white;
 		padding: 8px 12px;
 		text-align: center;
 		text-decoration: none;
