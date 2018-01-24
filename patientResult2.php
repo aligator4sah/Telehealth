@@ -10,7 +10,7 @@
         //echo "db is connected";
     }
 	
-    $userid = $_POST["userid"];
+    $userid = $_SESSION["userid"];
 
 ?>
 
@@ -77,8 +77,30 @@
 				<div class="header__hamburger-block">&nbsp;</div>
 			</div>
 			
+			<nav class="header__navigation">
+				<a href="adminVisual.php">
+					<div class="js-smooth-scroll  header__navigation-element">Overview...</div>
+				</a>
+				<a href="adminVisual.php#experience">
+					<div class="header__navigation-element  header__navigation-element--experience">Vendor Selection</div>
+				</a>
+				<a href="adminVisual.php#features">
+					<div class="header__navigation-element  header__navigation-element--features">Patient Provider</div>
+				</a>
+				<a href="adminVisual.php#realizations">
+					<div class="header__navigation-element  header__navigation-element--realizations">Data Management</div>
+				</a>
+				<a href="individualSearch.php">
+					<div class="header__navigation-element  header__navigation-element--contact">Individual Search</div>
+				</a>
+				<a href="adminlogin1">
+					<div class="header__navigation-element  header__navigation-element--contact">Log out</div>
+				</a>
+			</nav>
+			
+			
 
-			<a href="adminVisual.php" >
+			<a href="adminVisual.php" class="header__title-wrapper  js-smooth-scroll">
 				<div class="header__title-main">Tele Health</div>
 				<div class="header__title-sub">By School of Health and Rehabilitation</div>
 			</a>
@@ -133,7 +155,7 @@
     $min = $row["min"];
     $max = $row["max"];
 	  
-	  $sql = "SELECT answers.Answer AS answer, patient.Description AS des
+	  $sql = "SELECT DISTINCT answers.Answer AS answer, patient.Description AS des
 				FROM answers, patient
 				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID";
 	  $result = $conn->query($sql);
@@ -153,8 +175,9 @@
     ?>
 									</div>
 								</div>
-								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
-						</div>
+								<a href="finalGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+                            <a href="historyGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+                        </div>
 
 						<!-- project 2 -->
 						<div data-project="p2" class="showcase__stage">
@@ -171,7 +194,7 @@
     $min = $row["min"];
     $max = $row["max"];
 	  
-	  $sql = "SELECT answers.Answer AS answer, patient.Description AS des
+	  $sql = "SELECT DISTINCT answers.Answer AS answer, patient.Description AS des
 				FROM answers, patient
 				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID";
 	  $result = $conn->query($sql);
@@ -192,8 +215,8 @@
 			
 									</div>
 								</div>
-								<a href="finalGraph1.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
-							
+								<a href="finalGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+                            <a href="historyGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						</div>
 
 						<!-- project 3 -->
@@ -210,7 +233,7 @@
     $min = $row["min"];
     $max = $row["max"];
 	  
-	  $sql = "SELECT answers.Answer AS answer, patient.Description AS des
+	  $sql = "SELECT DISTINCT answers.Answer AS answer, patient.Description AS des
 				FROM answers, patient
 				WHERE answers.UserID = $userid AND answers.QuestionID = patient.QuestionID";
 	  $result = $conn->query($sql);
@@ -230,9 +253,8 @@
     ?>
 									</div>
 								</div>
-								<a href="individualPage.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
-						
-							
+								<a href="finalGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
+                            <a href="historyGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						</div>
 
 
@@ -243,8 +265,7 @@
 				</div>
 			</div>
 		</section>
-		<!-- End "Realizations" Section - With Projects -->
-		<!-- Scripts postload -->
+		
 	<script src="style/js/dependencies.min.js" type="text/javascript"></script>
 	<script src="style/js/global.js" type="text/javascript"></script>
 		</body>

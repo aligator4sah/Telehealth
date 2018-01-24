@@ -61,12 +61,6 @@
 	<div id="start" class="start">&nbsp;</div>
 	<div class="maxwidth1050">&nbsp;</div>
 
-
-
-
-
-
-
 	<!-- Header -->
 	<header class="header">
 		<div class="header__wrapper">
@@ -154,7 +148,7 @@
     $min = $row["min"];
     $max = $row["max"];
 	  
-	  $sql = "SELECT answers.Answer AS answer, data.Description AS des
+	  $sql = "SELECT DISTINCT answers.Answer AS answer, data.Description AS des
 				FROM answers, data
 				WHERE answers.UserID = $userid AND answers.QuestionID = data.QuestionID";
 	  $result = $conn->query($sql);
@@ -175,7 +169,8 @@
 									</div>
 								</div>
 								<a href="finalGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
-						</div>
+                                <a href="historyGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+							</div>
 
 						<!-- project 2 -->
 						<div data-project="p2" class="showcase__stage">
@@ -192,7 +187,7 @@
     $min = $row["min"];
     $max = $row["max"];
 	  
-	  $sql = "SELECT answers.Answer AS answer, data.Description AS des
+	  $sql = "SELECT DISTINCT answers.Answer AS answer, data.Description AS des
 				FROM answers, data
 				WHERE answers.UserID = $userid AND answers.QuestionID = data.QuestionID";
 	  $result = $conn->query($sql);
@@ -214,7 +209,7 @@
 									</div>
 								</div>
 								<a href="finalGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
-							
+                            <a href="historyGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
 						</div>
 
 						<!-- project 3 -->
@@ -231,7 +226,7 @@
     $min = $row["min"];
     $max = $row["max"];
 	  
-	  $sql = "SELECT answers.Answer AS answer, data.Description AS des
+	  $sql = "SELECT DISTINCT answers.Answer AS answer, data.Description AS des
 				FROM answers, data
 				WHERE answers.UserID = $userid AND answers.QuestionID = data.QuestionID";
 	  $result = $conn->query($sql);
@@ -252,8 +247,8 @@
 									</div>
 								</div>
 								<a href="finalGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">Back</a>
-						
-							
+                            <a href="historyGraph2.php" class="showcase__button  ghost-button  ghost-button--realizations">History</a>
+
 						</div>
 
 
