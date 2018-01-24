@@ -9,7 +9,12 @@
         //echo "db is connected";
     }
 
-    
+    $user = $_SESSION['username'];
+	$curtime = $_SESSION['date'];
+    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $userid = $row["id"];
 
 ?>
 
@@ -152,12 +157,6 @@
 										<?php
 
       // how to get the user and question ID from other database 
-    $user = $_SESSION['username'];
-	$curtime = $_SESSION['date'];
-    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $userid = $row["id"];
 	 
 
     $sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM data;";
@@ -197,12 +196,7 @@
 								<div class="showcase__point">
 					  				<div class="data_des">
 					<?php 
-					    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
-					$result = $conn->query($sql);
-					$row = $result->fetch_assoc();
-					$userid = $row["id"];
-
-					
+					   	
 					$sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM data;";
 					$result = $conn->query($sql);
 					$row = $result->fetch_assoc();
@@ -241,12 +235,7 @@
 								<div class="showcase__point">
 									<div class="data_des">
 									<?php 
-					    $sql = "SELECT id FROM userinfo WHERE username = '$user';";
-				$result = $conn->query($sql);
-				$row = $result->fetch_assoc();
-				$userid = $row["id"];
-				
-
+					  
 				$sql = "SELECT MIN(QuestionID) AS min, MAX(QuestionID) AS max FROM data;";
 				$result = $conn->query($sql);
 				$row = $result->fetch_assoc();
